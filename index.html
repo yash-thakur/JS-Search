@@ -5,9 +5,71 @@
     <title>Title</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/fontawesome-all.css">
+    <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
-    <div id="results" class="row m-0"></div>
-    <script src="./js/scripts.js"></script>
+<div class="container">
+    <div class="row pt-5 pb-3">
+        <div class="col-md-8"></div>
+        <div class="col-md-4">
+            <select id="sort" class="form-control" onchange="onChange()">
+                <option value="asc">Price: low to high</option>
+                <option value="desc">Price: high to low</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="sticky-top">
+                <div class="mb-3 pt-3">
+                    <h4>Rating: </h4>
+                    <div>
+                        <span class="star-cb-group">
+                          <input type="radio" id="rating-5" name="rating" value="5" onchange="onChange()"/>
+                            <label for="rating-5">5</label>
+                          <input type="radio" id="rating-4" name="rating" value="4" onchange="onChange()"/>
+                            <label for="rating-4">4</label>
+                          <input type="radio" id="rating-3" name="rating" value="3" onchange="onChange()"/>
+                            <label for="rating-3">3</label>
+                          <input type="radio" id="rating-2" name="rating" value="2" onchange="onChange()"/>
+                            <label for="rating-2">2</label>
+                          <input type="radio" id="rating-1" name="rating" value="1"  checked="checked" onchange="onChange()"/>
+                            <label for="rating-1">1</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="distance-slider mb-3">
+                    <h4>Distance from city center:</h4>
+                    <p id="distance_value"></p>
+                    <input id="distance" class="slider" type="range" step="0.5" onchange="onChange()"/>
+                </div>
+                <div class="mb-3">
+                    <h4>Price:</h4>
+                    <span>From: </span><input id="min_price" type="number" placeholder="From" class="d-block rounded my-1 w-75" onchange="onChange()"/>
+                    <span>To: </span><input id="max_price" type="number" placeholder="To" class="d-block rounded my-1 w-75" onchange="onChange()"/>
+                </div>
+                <div class="my-3 d-inline-block w-100">
+                    <h4>Facilities:</h4>
+                    <div>
+                        <input type="checkbox" id="wifi" onchange="onChange()">
+                        <label for="wifi" class="pl-2">WIFI</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="pool" onchange="onChange()">
+                        <label for="pool" class="pl-2">Swimming Pool</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" checked="checked" id="ignore_facilities" onchange="onChange()">
+                        <label for="ignore_facilities" class="pl-2">Does not matter</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9 content">
+            <div id="results" class="row"></div>
+        </div>
+    </div>
+</div>
+<script src="./js/scripts.js"></script>
 </body>
 </html>
